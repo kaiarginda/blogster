@@ -2,15 +2,10 @@ const path = require("path");
 
 module.exports = {
   webpack: (config, options) => {
-    // Add the raw-loader for binary files like .node
+    // Add the ignore-loader for binary files
     config.module.rules.push({
-      test: /\.(linux-x64-gnu\.node)$/, // Adjust the regex pattern to match your binary files
-      use: {
-        loader: "raw-loader",
-        options: {
-          esModule: false,
-        },
-      },
+      test: /\.(linux-x64-musl\.node)$/, // Adjust the regex pattern to match your binary files
+      use: "ignore-loader",
     });
 
     return config;
