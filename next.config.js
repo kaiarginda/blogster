@@ -1,33 +1,16 @@
-// // // Example config for adding a loader that depends on babel-loader
-// // // This source was taken from the @next/mdx plugin source:
-// // // https://github.com/vercel/next.js/tree/canary/packages/next-mdx
-// // module.exports = {
-// //   webpack: (config, options) => {
-// //     config.module.rules.push({
-// //       test: /\.mdx/,
-// //       use: [
-// //         options.defaultLoaders.babel,
-// //         {
-// //           loader: "@mdx-js/loader",
-// //           options: {},
-// //         },
-// //       ],
-// //     });
-
-// //     return config;
-// //   },
-// // };
-// const withMDX = require("@next/mdx")({
-//   extension: /\.mdx$/,
-// });
-
-// module.exports = withMDX();
+const path = require("path");
 
 module.exports = {
   webpack: (config, options) => {
+    // Add the raw-loader for binary files like .node
     config.module.rules.push({
-      test: /\.(win32-x64-msvc\.node)$/, // Adjust the regex pattern to match your specific binary files
-      use: "ignore-loader", // Use a custom loader (ignore-loader) to ignore the binary files
+      test: /\.(linux-x64-gnu\.node)$/, // Adjust the regex pattern to match your binary files
+      use: {
+        loader: "raw-loader",
+        options: {
+          esModule: false,
+        },
+      },
     });
 
     return config;
