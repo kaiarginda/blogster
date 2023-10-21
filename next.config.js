@@ -1,11 +1,4 @@
-/* @type {import('next').NextConfig} */
-const nextConfig = {
-  assetPrefix: config.assetPrefix,
-  isClient: !isServer,
-  isServer,
-  isDevelopment: dev,
-  future: nextConfig.future || {},
-  experimental: nextConfig.experimental || {},
-};
+/**  @type {import('next').NextConfig} */
+const nextConfig = {};
 
 module.exports = nextConfig;
