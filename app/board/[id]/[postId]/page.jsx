@@ -31,9 +31,9 @@ const page = async ({ params }) => {
           />
           <p className="font-bold text-xl text-center">{user.name}</p>
           <p className="pt-2 text-center">
-            Posted On: {user.postDate[postId].newDate.getDay()}/
-            {user.postDate[postId].newDate.getMonth()}/
-            {user.postDate[postId].newDate.getFullYear()}
+            Posted On: {new Date(user.postDate[postId].newDate).getDay()}/
+            {new Date(user.postDate[postId].newDate).getMonth()}/
+            {new Date(user.postDate[postId].newDate).getFullYear()}
           </p>
           <div className="flex gap-2 text-xl font-bold font-mono text-slate-700 text-center justify-center items-center">
             <p>{user.postTopics[postId].newTopic}</p>
@@ -75,9 +75,9 @@ const page = async ({ params }) => {
             />
             <p className="font-bold text-xl text-center">{user.name}</p>
             <p className="pt-2 text-center">
-              Posted On: {user.postDate[postId].newDate.getDay()}/
-              {user.postDate[postId].newDate.getMonth()}/
-              {user.postDate[postId].newDate.getFullYear()}
+              Posted On: {new Date(user.postDate[postId].newDate).getDay()}/
+              {new Date(user.postDate[postId].newDate).getMonth()}/
+              {new Date(user.postDate[postId].newDate).getFullYear()}
             </p>
             <div className="flex gap-2 text-xl font-bold font-mono text-slate-700 text-center justify-center items-center">
               <p>{user.postTopics[postId].newTopic}</p>

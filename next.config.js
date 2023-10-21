@@ -2,9 +2,9 @@ const path = require("path");
 
 module.exports = {
   webpack: (config, options) => {
-    // Add the ignore-loader for binary files
+    // Add the ignore-loader for binary files with .node extension
     config.module.rules.push({
-      test: /\.(linux-x64-musl\.node)$/, // Adjust the regex pattern to match your binary files
+      test: /\.(\.node)$/, // Match any file with a .node extension
       use: "ignore-loader",
     });
 
